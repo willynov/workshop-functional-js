@@ -42,11 +42,26 @@ let transformCheckpoint = (checkpoint) => {
 
 let showCheckpoint = (checkpoint, index) => {
   console.log(chalk.green('CHECKPOINT'), chalk.yellow(index + 1));
-  _.map(checkpoint, property => {
-    if(property) {
+  _.chain(input)
+  .map(property => {
+    if(property.distance > 1) {
+      property + 'm';
+    } else {
+      (property*100) + 'cm';
+    }
+  })
+  .map(property => {
+    property.distance = Math.floor;
+  })
+  .sortBy(property, 'distance')
+  //ascending => Décroissant ? si oui :
+  .reverse()
+  .value();
+  for (var property in checkpoint) {
+    if (checkpoint.hasOwnProperty(property)) {
       console.log(chalk.cyan(property.toUpperCase()), checkpoint[property]);
     }
-  });
+  }
   console.log('\n');
 };
 
