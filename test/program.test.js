@@ -9,7 +9,7 @@ describe('Function transformCheckpoint', function() {
     expect(transformCheckpoint()).to.be.false;
   });
   it('Function transformCheckpoint with parameter is mutate', function() {
-    expect(transformCheckpoint([{
+    expect(transformCheckpoint({
       id: 'whataw0nd3rful1d',
       uuid: 'whataw0nd3rful1d',
       address: 'unknown',
@@ -24,7 +24,7 @@ describe('Function transformCheckpoint', function() {
       rssi: -66,
       services: null,
       state: 'outofcontrol'
-    }])).to.be.eql(true);
+    })).to.be.eql(true);
   });
 
 });
