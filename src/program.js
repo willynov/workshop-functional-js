@@ -17,7 +17,9 @@ let calculateDistanceWithRssi = rssi => {
   }
 };
 
-let transformCheckpoint = (checkpoint) => {
+let transformCheckpoint = (checkpoint2) => {
+  var checkpoint = checkpoint2.slice(0);
+  checkpoint = checkpoint[0];
   if (checkpoint) {
     // Get back essential properties
     checkpoint.serviceData = checkpoint.advertisement.serviceData;
